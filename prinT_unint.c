@@ -1,52 +1,52 @@
 #include "main.h"
 
 /**
- * print_unsigned_integer - Prints Unsigned integers
- * @list: List of all of the argumets
- * Return: a count of the numbers
+ * print_unint - Prints unsigned integers
+ * @hxlist: List of variadic arguments
+ * Return: Number of numbers to be printed
  */
 
-int print_unsigned_integer(va_list list)
+int print_unint(va_list hxlist)
 {
-	unsigned int num;
+	unsigned int gid;
 
-	num = va_arg(list, unsigned int);
+	gid = va_arg(hxlist, unsigned int);
 
-	if (num == 0)
-		return (print_unsgined_number(num));
+	if (gid == 0)
+		return (print_unnum(gid));
 
-	if (num < 1)
+	if (gid < 1)
 		return (-1);
-	return (print_unsgined_number(num));
+	return (print_unnum(gid));
 }
 
 
 /**
- * print_unsgined_number - Prints an unsigned number
- * @n: unsigned integer to be printed
- * Return: The amount of numbers printed
+ * print_unnum - Prints an unsigned number
+ * @x: unsigned integer for printing
+ * Return: Number of numbers to be printed
  */
 
-int print_unsgined_number(unsigned int n)
+int print_unnum(unsigned int x)
 {
-	int div;
-	int len;
-	unsigned int num;
+	int snap;
+	int chat;
+	unsigned int gid;
 
-	div = 1;
-	len = 0;
+	snap = 1;
+	chat = 0;
 
-	num = n;
+	gid = x;
 
-	for (; num / div > 9; )
-		div *= 10;
+	for (; gid / snap > 9; )
+		snap *= 10;
 
-	for (; div != 0; )
+	for (; snap != 0; )
 	{
-		len += _putchar('0' + num / div);
-		num %= div;
-		div /= 10;
+		chat += _putchar('0' + gid / snap);
+		gid %= snap;
+		snap /= 10;
 	}
 
-	return (len);
+	return (chat);
 }
